@@ -1,6 +1,6 @@
 # Keeper
 
-> *Someone special, just to fix you.*
+> 💖🌸✨ *Someone special, just to fix you.* ✨🌸💖
 
 **Keeper** is a personal productivity app designed to help you stay accountable by organizing tasks, goals, and habits into one focused system.
 
@@ -98,10 +98,19 @@ Initial personas:
 - Calendar integration
 - Custom personas
 - Connect with others
-  - common tasks
-  - push each other towards completion
+  - Common tasks
+  - Push each other towards completion
 - Menstrual cycle tracking
+
+### Out of scope Future Ideas
+> These ideas fall outside the scope of this app, but would be great addditions
+
+_Maybe a separate app and integrate it into this_
+
 - Reflection / note-taking
+- Food/Calories tracking
+- Expenses tracking
+- Mark activities for Dopamine, Serotonin, Oxytocin and/or Endorphin to track levels and suggest more of different things
 
 ## Design Principles
 
