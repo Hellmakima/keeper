@@ -13,10 +13,11 @@ Tasks are the core of Keeper. Each task carries **points**, structure, and inten
   - One-off or lightweight habits, e.g., *Apply mascara*
   - or *Water the cactus every alternate Friday*
 
-### Advanced repetition
+### Advanced Features
 
 - Custom schedules (biweekly, monthly, etc.)
 - Cron-like repetition for power users
+- Tasks can be rescheduled
 
 ### Goals & motivation
 
