@@ -1,9 +1,13 @@
 [project]
 name = "keeper"
 version = "0.1.0"
+authors = [
+    { name = "Hellmakima", email = "sufiyanhatar@gmail.com" },
+]
 description = "Someone special just to fix you!"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "textual>=7.5.0",
     "typer>=0.23.1",
 ]

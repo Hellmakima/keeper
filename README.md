@@ -113,16 +113,8 @@ _Maybe a separate app and integrate it into this_
 - Expenses tracking
 - Mark activities for Dopamine, Serotonin, Oxytocin and/or Endorphin to track levels and suggest more of different things
 
-## Design Principles
+# 💌 Contribute to the project
 
-- Intuitive, low-friction UI
-- Offline-first
+- If you have any new features that would make your life easier, please don't hesitate to raise issues.
 
-## License
-
-MIT License
-
-## Contributing
-
-Contributions are welcome!
-I’m usually available on weekends, but feel free to open issues or PRs anytime, No AI please.
+- If you wish to contribute to the project as a programmer, please first **open an issue** with the `feature` tag (title prefixed with `[Feat] description`) describing your suggested features. After getting approval from the maintainer, you can drop pull requests and I will review each of them carefully.
