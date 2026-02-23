@@ -2,7 +2,13 @@ import os
 from enum import Enum
 
 import typer
-from importlib.metadata import version
+
+# Try to get version from package metadata, fallback to default
+try:
+    from importlib.metadata import version
+    VERSION = version("keeper")
+except Exception:
+    VERSION = "0.1.0"
 
 # App Config
 APP_NAME = "keeper"
@@ -11,7 +17,6 @@ CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".config", "keeper", "keeper
 DB_PATH = os.path.join(APP_DIR, "keeper.db")
 EVENT_IDS_CACHE_PATH = os.path.join(APP_DIR, "event_ids_cache.json")
 PLUGINS_DIR = os.path.join(os.path.dirname(__file__), "commands")
-VERSION = version("keeper")
 
 
 # Commands

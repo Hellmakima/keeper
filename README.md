@@ -4,6 +4,13 @@
 
 **Keeper** is a personal productivity app designed to help you stay accountable by organizing tasks, goals, and habits into one focused system.
 
+## Run
+
+```bash
+uv sync
+uv run python -m keeper.keeper_TUI
+```
+
 ## Tasks
 
 Tasks are the core of Keeper. Each task carries **points**, structure, and intent.

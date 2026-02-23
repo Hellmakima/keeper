@@ -99,9 +99,22 @@ class TasksView(Static):
     def load_tasks(self):
         """Load tasks from database"""
         task_list = trackables.list_trackables(type_="task", archived=False)
-        self.tasks = [(task['name'], False, task['id']) for task in task_list]
+        self.tasks = []
+        
+        for task in task_list:
+            # Check if task is completed
+            events = trackables.get_trackable_events(task['id'])
+            completed = False
+            for event in reversed(events):
+                if event['event_type'] in ['completed', 'uncompleted']:
+                    completed = (event['event_type'] == 'completed')
+                    break
+            
+            points = task.get('points', 1)
+            self.tasks.append((task['name'], completed, task['id'], points))
+        
         if not self.tasks:
-            self.tasks = [("No tasks yet. Press 'n' to add one.", False, None)]
+            self.tasks = [("No tasks yet. Press 'n' to add one.", False, None, 0)]
         self.render_tasks()
 
     def on_key(self, event):
@@ -138,10 +151,34 @@ class TasksView(Static):
     def render_tasks(self):
         """Render task list to the view"""
         rendered = []
+        total_points = 0
+        completed_points = 0
+        
         for i, task in enumerate(self.tasks):
             prefix = "> " if i == self.cursor else "  "
             status = "[x]" if task[1] else "[ ]"
-            rendered.append(f"{prefix}{status} {task[0]}")
+            points = task[3] if len(task) > 3 else 0
+            
+            if task[2] is not None:  # Real task (not placeholder)
+                total_points += points
+                if task[1]:  # completed
+                    completed_points += points
+                rendered.append(f"{prefix}{status} {task[0]} ({points} pts)")
+            else:
+                rendered.append(f"{prefix}{task[0]}")
+        
+        # Add progress stats if there are tasks
+        if total_points > 0:
+            rendered.append("")
+            rendered.append("─" * 40)
+            rendered.append(f"Progress: {completed_points}/{total_points} points")
+            
+            # Add progress bar
+            progress = int((completed_points / total_points) * 20)
+            bar = "█" * progress + "░" * (20 - progress)
+            percentage = int((completed_points / total_points) * 100)
+            rendered.append(f"[{bar}] {percentage}%")
+        
         self.update("\n".join(rendered))
 
     def watch_cursor(self):
